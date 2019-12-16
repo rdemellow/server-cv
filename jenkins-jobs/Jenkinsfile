@@ -24,6 +24,7 @@ SILENT = env.JOB_NAME.contains("silent")
 
 WINDOWS_NODE_LABEL = "msvc2015"
 LINUX_NODE_LABEL = "ubuntu-1604"
+MACOS_NODE_LABEL = "kv-macos"
 
 
 pipeline {
@@ -330,6 +331,17 @@ def getProjectName() {
 
 def getNodeLabel() {
     def osLabel = (getJobName() == "windows" ? WINDOWS_NODE_LABEL : LINUX_NODE_LABEL)
+    switch(getJobName()) {
+        case  "windows":
+            osLabel = WINDOWS_NODE_LABEL
+            break;
+        case "macos"
+            osLabel = MACOS_NODE_LABEL
+            break;
+        default:
+            osLabel = LINUX_NODE_LABEL
+            break;
+    }
     return "${osLabel} && ${env.BRANCH_NAME}"
 }
 
