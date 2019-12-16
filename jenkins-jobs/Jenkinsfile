@@ -335,7 +335,7 @@ def getNodeLabel() {
         case  "windows":
             osLabel = WINDOWS_NODE_LABEL
             break;
-        case "macos"
+        case "macos":
             osLabel = MACOS_NODE_LABEL
             break;
         default:
