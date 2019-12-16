@@ -330,7 +330,8 @@ def getProjectName() {
 }
 
 def getNodeLabel() {
-    def osLabel = (getJobName() == "windows" ? WINDOWS_NODE_LABEL : LINUX_NODE_LABEL)
+    def osLabel = ""
+    println(getJobName())
     switch(getJobName()) {
         case  "windows":
             osLabel = WINDOWS_NODE_LABEL
